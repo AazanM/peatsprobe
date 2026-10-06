@@ -1,0 +1,29 @@
+name: PeatsProbe
+options:
+  bundleIdPrefix: com.aazan
+  deploymentTarget:
+    macOS: "14.0"
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+targets:
+  PeatsProbe:
+    type: application
+    platform: macOS
+    sources:
+      - path: Sources/PeatsProbe
+    info:
+      path: Sources/PeatsProbe/Info.plist
+      properties:
+        CFBundleDisplayName: PeatsProbe
+        NSBluetoothAlwaysUsageDescription: PeatsProbe needs Bluetooth access to discover and communicate with your paired SoundPEATS earbuds.
+    dependencies:
+      - sdk: CoreBluetooth.framework
+      - sdk: IOBluetooth.framework
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.aazan.PEatsProbe
+        PRODUCT_NAME: PeatsProbe
+        CODE_SIGN_IDENTITY: "-"
+        CODE_SIGN_STYLE: Manual
